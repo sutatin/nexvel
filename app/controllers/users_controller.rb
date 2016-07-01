@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   
   def show # 追加
    @user = User.find(params[:id])
+   @interests = @user.interests.order(created_at: :desc)
    @companies = @user.companies.order(created_at: :desc)
   end
   

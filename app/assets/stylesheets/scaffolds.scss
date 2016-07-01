@@ -1,15 +1,19 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: "Meiryo UI",verdana, arial, helvetica, sans-serif;
+  font-size: 16px;
   line-height: 18px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: "Meiryo UI",verdana, arial, helvetica, sans-serif;
+  font-size: 16px;
   line-height: 18px;
+}
+
+th{
+    font-size: 20px;
 }
 
 pre {

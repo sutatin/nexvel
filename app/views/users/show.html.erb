@@ -1,9 +1,20 @@
 <h1>
   <%= gravatar_for @user %>
   <%= @user.name %>さんの関心企業
-  <hr>
   
-  <table class="table">
-    <%= render @companies %>
+  <hr>
+
+  <table class="table  table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th class="text-center">Logos</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Status</th>
+      <th class="text-center">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @interests %>
+  </tbody>
   </table>
 </h1>
