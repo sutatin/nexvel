@@ -13,11 +13,20 @@
 
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.number_field :user_id , {class: "form-control"}%>
   </div>
   <div class="field">
     <%= f.label :company_id %><br>
-    <%= f.number_field :company_id %>
+    <%= f.number_field :company_id , {class: "form-control"}%>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status , {class: "form-control"}%>
+  </div>
+  <div class="field">
+    <%= f.label :datetime %><br>
+    <%= f.date_select :date ,{}, {class: "form-control"}%>
+
   </div>
   <div class="actions">
     <%= f.submit %>

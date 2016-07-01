@@ -10,5 +10,15 @@
   <%= @interest.company_id %>
 </p>
 
+<p>
+  <strong>Status:</strong>
+  <%= @interest.status %>
+</p>
+
+<p>
+  <strong>Datetime:</strong>
+  <%= @interest.date %>
+</p>
+
 <%= link_to 'Edit', edit_interest_path(@interest) %> |
 <%= link_to 'Back', interests_path %>

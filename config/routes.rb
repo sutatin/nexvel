@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   resources :interests
+  resources :interests
+  resources :interests
   resources :companies
   root to: 'static_pages#home'
 

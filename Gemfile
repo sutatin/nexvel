@@ -38,6 +38,9 @@ gem 'bootstrap-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use Seed_dump http://qiita.com/onemoyan3/items/a98dede71f0bc39a4559
+gem 'seed_dump'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

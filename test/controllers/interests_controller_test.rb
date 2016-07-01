@@ -18,7 +18,7 @@ class InterestsControllerTest < ActionController::TestCase
 
   test "should create interest" do
     assert_difference('Interest.count') do
-      post :create, interest: { company_id: @interest.company_id, user_id: @interest.user_id }
+      post :create, interest: { company_id: @interest.company_id, datetime: @interest.datetime, status: @interest.status, user_id: @interest.user_id }
     end
 
     assert_redirected_to interest_path(assigns(:interest))
@@ -35,7 +35,7 @@ class InterestsControllerTest < ActionController::TestCase
   end
 
   test "should update interest" do
-    patch :update, id: @interest, interest: { company_id: @interest.company_id, user_id: @interest.user_id }
+    patch :update, id: @interest, interest: { company_id: @interest.company_id, datetime: @interest.datetime, status: @interest.status, user_id: @interest.user_id }
     assert_redirected_to interest_path(assigns(:interest))
   end
 

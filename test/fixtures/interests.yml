@@ -3,7 +3,11 @@
 one:
   user_id: 1
   company_id: 1
+  status: MyString
+  datetime: 2016-06-29 09:07:46
 
 two:
   user_id: 1
   company_id: 1
+  status: MyString
+  datetime: 2016-06-29 09:07:46
