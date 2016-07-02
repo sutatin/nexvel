@@ -1,9 +1,10 @@
-
-
 <tr id="company-<%= interest.company.id %>">
   <td><img border="0" height="60px" src="<%= interest.company.logoURL %>" alt="logo"></td>
-  <td><p class="text-center" valign="middle"><%= interest.company.name %></p></td>
   <td><p class="text-center" valign="middle">
+     <%= link_to interest.company.name,  edit_interest_path(interest.id) %>
+  </p></td>
+  <td><p class="text-center" valign="middle">
+    <% #TODO helper化%>
     <% label_tag = "label-success"%>
     <% if interest.status == "最終面接" then %>
     <% label_tag = "label-danger" %>

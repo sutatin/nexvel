@@ -41,6 +41,11 @@ gem 'bootstrap-sass'
 # Use Seed_dump http://qiita.com/onemoyan3/items/a98dede71f0bc39a4559
 gem 'seed_dump'
 
+# Use Ransack http://tmiyamon.github.io/blog/2014/10/23/gem-ransack/
+gem 'ransack'
+
+gem 'pry-byebug', group: :development
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

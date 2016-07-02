@@ -3,18 +3,25 @@
   <%= @user.name %>さんの関心企業
   
   <hr>
-
   <table class="table  table-striped">
   <thead class="thead-inverse">
     <tr>
       <th class="text-center">Logos</th>
       <th class="text-center">Name</th>
-      <th class="text-center">Status</th>
-      <th class="text-center">Date</th>
+      <th class="text-center"><%= sort_link(@ransack_interest, :status) %></th>
+      <th class="text-center"><%= sort_link(@ransack_interest, :date) %></th>
     </tr>
   </thead>
   <tbody>
     <%= render @interests %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+          <%= link_to "新しい企業を探す" , new_interest_path , { :class => "btn btn-primary btn-lg", :role =>"button"}%>
+      </td>
+    </tr>
   </tbody>
   </table>
 </h1>
