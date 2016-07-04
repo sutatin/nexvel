@@ -3,17 +3,17 @@
   <td><p class="text-center" valign="middle">
      <%= link_to interest.company.name,  edit_interest_path(interest.id) %>
   </p></td>
+
   <td><p class="text-center" valign="middle">
-    <% #TODO helper化%>
-    <% label_tag = "label-success"%>
-    <% if interest.status == "最終面接" then %>
-    <% label_tag = "label-danger" %>
-    <% elsif interest.status == "2次選考" then %>
-    <% label_tag = "label-warning" %>
-    <% elsif interest.status == "情報収集中" then %>
-    <% label_tag = "label-info" %>
-    <% end %>
+    
+     <%= link_to interest.score||=0,  edit_interest_path(interest.id) %>
+  </p></td>
+
+
+  <td><p class="text-center" valign="middle">
+    <% label_tag = make_label_class(interest.status)%>
     <%= content_tag(:span, interest.status, class: ["label",label_tag,"status-label"])%>
+
   </p></td>
   <td><p class="text-center" valign="middle"><%= interest.date %></p></td>
 </tr>

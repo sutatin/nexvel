@@ -1,11 +1,10 @@
-class CompaniesController < ApplicationController
+class AdmincompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   # GET /companies
   # GET /companies.json
   def index
-    @q = Company.search(params[:q])
-    @companies = @q.result(distinct: true)
+    @companies = Company.all
   end
 
   # GET /companies/1

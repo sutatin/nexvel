@@ -8,6 +8,7 @@
     <tr>
       <th class="text-center">Logos</th>
       <th class="text-center">Name</th>
+      <th class="text-center"><%= sort_link(@ransack_interest, :score) %></th>
       <th class="text-center"><%= sort_link(@ransack_interest, :status) %></th>
       <th class="text-center"><%= sort_link(@ransack_interest, :date) %></th>
     </tr>
@@ -19,7 +20,7 @@
       <td></td>
       <td></td>
       <td>
-          <%= link_to "新しい企業を探す" , new_interest_path , { :class => "btn btn-primary btn-lg", :role =>"button"}%>
+          <%= link_to "新しい企業を探す" , companies_path , { :class => "btn btn-primary btn-lg", :role =>"button"}%>
       </td>
     </tr>
   </tbody>

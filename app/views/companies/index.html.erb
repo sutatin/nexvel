@@ -1,24 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Companies</h1>
+<h1>企業一覧</h1>
 
-<table>
-  <thead>
+  <hr>
+
+  <%= search_form_for @q,html:{class:"form-inline text-center"} do |f| %>
+  <div class="form-group">
+      <%= f.search_field :name_cont ,class: "form-control"%>
+      <span class = "input-group">
+      <%= f.submit "検索"%>
+      </span>
+    <% end %>
+  </div>
+  
+
+  <table class="table  table-striped">
+  <thead class="thead-inverse">
     <tr>
-      <th>Name</th>
-      <th>Logourl</th>
-      <th colspan="3"></th>
+      <th class="text-center">Logos</th>
+      <th class="text-center">Name</th>
     </tr>
   </thead>
-
   <tbody>
     <% @companies.each do |company| %>
       <tr>
-        <td><%= company.name %></td>
-        <td><%= company.logoURL %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="text-center"><img border="0" height="60px" src="<%= company.logoURL %>" alt="logo"></td>
+        <td>
+          <p class="text-center" valign="middle">
+          <%= company.name %>
+          </p>
+        </td>
+        <td>
+          <%= link_to "追加する" , new_interest_path , { :class => "btn btn-primary btn-lg", :role =>"button"}%>
+        </td>
       </tr>
     <% end %>
   </tbody>
