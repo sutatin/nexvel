@@ -1,29 +1,37 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @interest.user_id %>
+  <strong>会社名:</strong>
+  <%= @interest.company.name %>
 </p>
 
 <p>
-  <strong>Company:</strong>
-  <%= @interest.company_id %>
-</p>
-
-<p>
-  <strong>Score:</strong>
+  <strong>総合評価:</strong>
   <%= @interest.score %>
 </p>
 
 <p>
-  <strong>Status:</strong>
+  <strong>選考状況:</strong>
   <%= @interest.status %>
 </p>
 
 <p>
-  <strong>Datetime:</strong>
+  <strong>次の日付:</strong>
   <%= @interest.date %>
 </p>
+<%= link_to '選考状況を更新する', edit_interest_path(@interest) %> 
+<hr>
 
-<%= link_to 'Edit', edit_interest_path(@interest) %> |
-<%= link_to 'Back', interests_path %>
+<p>
+<strong>今までの記録:</strong>
+  <% @interest_memos.each do |f| %>
+    <div><%= f.date %></div>
+    <div><%= f.memo %></div>
+    <br>
+  <% end %>
+<%= link_to '新しい記録を残す', new_interest_memo_path(@interest.user_id) %>
+</p>
+
+<hr>
+
+<%= link_to 'ホームに戻る', user_path(@interest.user_id) %>

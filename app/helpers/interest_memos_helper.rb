@@ -1,0 +1,2 @@
+module InterestMemosHelper
+end

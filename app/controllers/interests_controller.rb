@@ -10,6 +10,7 @@ class InterestsController < ApplicationController
   # GET /interests/1
   # GET /interests/1.json
   def show
+    @interest_memos = @interest.interest_memos
   end
 
   # GET /interests/new

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :interest_memos
   resources :interests
   resources :interests
   resources :interests

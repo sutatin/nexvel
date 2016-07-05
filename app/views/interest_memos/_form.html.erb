@@ -1,0 +1,29 @@
+<%= form_for(@interest_memo) do |f| %>
+  <% if @interest_memo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@interest_memo.errors.count, "error") %> prohibited this interest_memo from being saved:</h2>
+
+      <ul>
+      <% @interest_memo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :interest_id %><br>
+    <%= f.number_field :interest_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :memo %><br>
+    <%= f.text_area :memo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

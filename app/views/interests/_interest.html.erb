@@ -1,11 +1,11 @@
 <tr id="company-<%= interest.company.id %>">
   <td><img border="0" height="60px" src="<%= interest.company.logoURL %>" alt="logo"></td>
+
   <td><p class="text-center" valign="middle">
-     <%= link_to interest.company.name,  edit_interest_path(interest.id) %>
+     <%= link_to interest.company.name,  interest_path(interest.id) %>
   </p></td>
 
   <td><p class="text-center" valign="middle">
-    
      <%= link_to interest.score||=0,  edit_interest_path(interest.id) %>
   </p></td>
 

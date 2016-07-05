@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Interest:</strong>
+  <%= @interest_memo.interest_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @interest_memo.date %>
+</p>
+
+<p>
+  <strong>Memo:</strong>
+  <%= @interest_memo.memo %>
+</p>
+
+<%= link_to 'Edit', edit_interest_memo_path(@interest_memo) %> |
+<%= link_to 'Back', interest_memos_path %>
