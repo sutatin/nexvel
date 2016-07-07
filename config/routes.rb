@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
 
   resources :interest_memos
-  get 'interest_memo/new.:interest_id' => 'interest_memo#create'
   resources :interests
-  resources :interests
-  resources :interests
+  post 'interests/addCompany',to:'interests#addCompany'
+  
   resources :companies
-  get 'admincompanies',to:'admincompanies#index'
-
+  get 'interest_memo/new.:interest_id' => 'interest_memo#create'
 
   root to: 'static_pages#home'
 
@@ -16,6 +14,7 @@ Rails.application.routes.draw do
   post 'login',to:'sessions#create'
   delete 'logout',to:'sessions#destroy'
 
+  get 'admincompanies',to:'admincompanies#index'
   
   resources :users
   resources :sessions, only: [:new,:create,:destroy]

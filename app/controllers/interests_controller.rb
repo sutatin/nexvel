@@ -38,6 +38,24 @@ class InterestsController < ApplicationController
     end
   end
 
+  # POST /interests/addCompany
+  def addCompany
+    @interest = Interest.new()
+    @interest.company_id = params['company_id']
+    @interest.user_id = current_user.id
+    @interest.score = 0
+    @interest.status = "情報収集中"
+
+    respond_to do |format|
+      if @interest.save
+        format.html { redirect_to current_user, notice: 'Interest was successfully created.' }
+      else
+        format.html { render :new }
+      end
+    end
+  end
+
+
   # PATCH/PUT /interests/1
   # PATCH/PUT /interests/1.json
   def update
