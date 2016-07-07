@@ -26,10 +26,10 @@
 <strong>今までの記録:</strong>
   <% @interest_memos.each do |f| %>
     <div><%= f.date %></div>
-    <div><%= f.memo %></div>
+    <div><%= simple_format(f.memo) %></div>
     <br>
   <% end %>
-<%= link_to '新しい記録を残す', new_interest_memo_path(@interest.user_id) %>
+<%= link_to '新しい記録を残す', new_interest_memo_path(:interest_id => @interest.id) %>
 </p>
 
 <hr>

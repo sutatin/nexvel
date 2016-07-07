@@ -14,7 +14,7 @@ class InterestMemosController < ApplicationController
 
   # GET /interest_memos/new
   def new
-    @interest_memo = InterestMemo.new
+    @interest_memo = InterestMemo.new({'interest_id':params['interest_id']})
   end
 
   # GET /interest_memos/1/edit
@@ -28,7 +28,7 @@ class InterestMemosController < ApplicationController
 
     respond_to do |format|
       if @interest_memo.save
-        format.html { redirect_to @interest_memo, notice: 'Interest memo was successfully created.' }
+        format.html { redirect_to interest_path(@interest_memo.interest_id), notice: '新しいメモを作成しました' }
         format.json { render :show, status: :created, location: @interest_memo }
       else
         format.html { render :new }

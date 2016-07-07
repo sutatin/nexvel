@@ -10,11 +10,11 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :interest_id %><br>
-    <%= f.number_field :interest_id %>
+  
+  <div>
+    <%= f.hidden_field :interest_id, :value => @interest_memo.interest_id %>
   </div>
+
   <div class="field">
     <%= f.label :date %><br>
     <%= f.date_select :date %>

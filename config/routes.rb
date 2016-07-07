@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :interest_memos
+  get 'interest_memo/new.:interest_id' => 'interest_memo#create'
   resources :interests
   resources :interests
   resources :interests
