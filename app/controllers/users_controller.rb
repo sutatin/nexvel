@@ -5,8 +5,7 @@ class UsersController < ApplicationController
   
   def show # 追加
    @user = User.find(params[:id])
-   #@interests = @user.interests.order(created_at: :desc)
-   #@companies = @user.companies.order(created_at: :desc)
+   params[:q] ||=  {:s => 'date'}
    @ransack_interest = @user.interests.search(params[:q])
    @interests = @ransack_interest.result(distinct: true)
   end
