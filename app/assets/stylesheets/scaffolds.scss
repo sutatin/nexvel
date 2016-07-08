@@ -95,6 +95,20 @@ a {
     border-style: none;	
 }
 
+.navbar-inverse .navbar-nav > li > a {
+  color: #000;
+}
+
+.navbar-inverse .navbar-nav > li > a:visited {
+  color: #000;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #777;
+    background-color: transparent;
+}
+
+
 
 a {
   color: #000;
