@@ -1,34 +1,71 @@
-<p>
-  <strong>会社名:</strong>
-  <%= @interest.company.name %>
-</p>
-
-<p>
-  <strong>総合評価:</strong>
-  <%= @interest.score %>
-</p>
-
-<p>
-  <strong>選考状況:</strong>
-  <%= @interest.status %>
-</p>
-
-<p>
-  <strong>次の日付:</strong>
-  <%= @interest.date %>
-</p>
-<%= link_to '選考状況を更新する', edit_interest_path(@interest) %> 
+<hr>
+  <div>
+    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+    関心企業一覧 /   <%= @interest.company.name %>
+  </div>
 <hr>
 
-<p>
-<strong>今までの記録:</strong>
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-success">
+      選考状況概要
+  </li>
+  <li class="list-group-item">
+    <p>
+      [会社名]
+      <%= @interest.company.name %>
+    </p>
+  </li>
+  <li class="list-group-item">
+    <p>
+      [自己総合評価]
+      <%= @interest.score %>
+    </p>
+  </li>
+  <li class="list-group-item">
+    <p>
+      [選考状況]
+      <%= @interest.status %>
+    </p>
+  </li>
+  <li class="list-group-item">
+    <p>
+      [次の日付]
+      <%= @interest.date %>
+    </p>
+  </li>
+</ul>
+
+<%= link_to edit_interest_path(@interest) do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    この企業の選考概要を更新する
+<% end %>
+
+<hr>
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-success">
+    今までの記録
+  </li>
   <% @interest_memos.each do |f| %>
-    <div><%= f.date %></div>
-    <div><%= simple_format(f.memo) %></div>
-    <br>
+  <li class="list-group-item">
+    <p>
+      <h4 class="list-group-item-heading">
+      <%= link_to edit_interest_memo_path(f) do %>
+          <span class="glyphicon glyphicon-calendar"></span>
+          <%= f.date %>
+      <% end %>
+      </h4>
+      <p class="list-group-item-text"><%= simple_format(f.memo) %></p>
+    </p>
+  </li>
   <% end %>
-<%= link_to '新しい記録を残す', new_interest_memo_path(:interest_id => @interest.id) %>
-</p>
+</ul>
+
+<%= link_to new_interest_memo_path(:interest_id => @interest.id) do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    新しい記録を残す
+<% end %>
 
 <hr>
 
