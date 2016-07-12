@@ -15,13 +15,17 @@
     <%= f.hidden_field :interest_id, :value => @interest_memo.interest_id %>
   </div>
 
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
-  </div>
+  <%= f.label :date %>
+  <div class='input-group date datepicker'>
+   <%= f.text_field :date, class: 'form-control' %>
+   <span class="input-group-addon">
+       <span class="glyphicon glyphicon-calendar"></span>
+   </span>
+  </div>  
+
   <div class="field">
     <%= f.label :memo %><br>
-    <%= f.text_area :memo %>
+    <%= f.text_area :memo, :size=>"60x15"%>
   </div>
   <div class="actions">
     <%= f.submit %>

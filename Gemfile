@@ -48,6 +48,9 @@ gem 'pry-byebug', group: :development
 
 gem 'kaminari'
 
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
