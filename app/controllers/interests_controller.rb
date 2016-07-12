@@ -39,7 +39,7 @@ class InterestsController < ApplicationController
   end
 
   # POST /interests/addCompany
-  def addCompany
+  def add_company
     @interest = Interest.new()
     @interest.company_id = params['company_id']
     @interest.user_id = current_user.id

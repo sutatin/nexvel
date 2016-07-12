@@ -6,7 +6,7 @@
   </div>
 <hr>
 
-  <%= search_form_for @q,html:{class:"form-inline text-center"} do |f| %>
+  <%= search_form_for @query,html:{class:"form-inline text-center"} do |f| %>
   <div class="form-group">
       <%= f.search_field :name_cont ,class: "form-control"%>
       <span class = "input-group">
@@ -33,7 +33,7 @@
           </p>
         </td>
         <td>
-          <%= button_to "追加する" , action="/interests/addCompany?company_id=#{company.id}" , { :class => "btn btn-primary btn-lg", :role =>"button"}%>
+          <%= button_to "追加する" , action="/interests/add_company?company_id=#{company.id}" , { :class => "btn btn-primary btn-lg", :role =>"button"}%>
         </td>
       </tr>
     <% end %>

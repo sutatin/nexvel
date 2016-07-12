@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :companies
 
   resources :interests
-  post 'interests/addCompany',to:'interests#addCompany'
+  post 'interests/add_company',to:'interests#add_company'
   
   resources :interest_memos
   get 'interest_memo/new.:interest_id',to:'interest_memo#create'

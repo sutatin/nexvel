@@ -4,8 +4,8 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @q = Company.search(params[:q])
-    @companies = @q.result(distinct: true).page(params[:page])
+    @query = Company.search(params[:q])
+    @companies = @query.result(distinct: true).page(params[:page])
   end
 
   # GET /companies/1
