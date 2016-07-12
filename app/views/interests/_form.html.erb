@@ -31,11 +31,15 @@
     <%= f.label :status %><br>
     <%= f.text_field :status , {class: "form-control"}%>
   </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date ,{}, {class: "form-control"}%>
-
-  </div>
+  
+  <%= f.label :date %>
+  <div class='input-group date datepicker field'>
+   <%= f.text_field :date, class: 'form-control' %>
+   <span class="input-group-addon">
+       <span class="glyphicon glyphicon-calendar"></span>
+   </span>
+  </div>  
+  
   <div class="actions">
     <%= f.submit "更新する"%>
   </div>
