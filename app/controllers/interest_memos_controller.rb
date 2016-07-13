@@ -42,7 +42,7 @@ class InterestMemosController < ApplicationController
   def update
     respond_to do |format|
       if @interest_memo.update(interest_memo_params)
-        format.html { redirect_to @interest_memo, notice: 'Interest memo was successfully updated.' }
+        format.html { redirect_to @interest_memo.interest, notice: '選考状況概要を更新しました。' }
         format.json { render :show, status: :ok, location: @interest_memo }
       else
         format.html { render :edit }
