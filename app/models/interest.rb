@@ -7,4 +7,5 @@ class Interest < ActiveRecord::Base
     belongs_to :user
     belongs_to :company
     has_many :interest_memos
+    has_many :evaluation_scores
 end

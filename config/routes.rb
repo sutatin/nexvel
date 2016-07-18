@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :evaluation_scores
+  resources :selected_evaluation_items
+  resources :evaluation_items
   resources :companies
 
   resources :interests

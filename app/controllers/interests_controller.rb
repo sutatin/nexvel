@@ -11,6 +11,7 @@ class InterestsController < ApplicationController
   # GET /interests/1.json
   def show
     @interest_memos = @interest.interest_memos
+    @evaluation_scores = @interest.evaluation_scores
   end
 
   # GET /interests/new

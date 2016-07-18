@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Evaluation Scores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Selected evaluation item</th>
+      <th>Interest</th>
+      <th>Score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evaluation_scores.each do |evaluation_score| %>
+      <tr>
+        <td><%= evaluation_score.selected_evaluation_item_id %></td>
+        <td><%= evaluation_score.interest_id %></td>
+        <td><%= evaluation_score.score %></td>
+        <td><%= link_to 'Show', evaluation_score %></td>
+        <td><%= link_to 'Edit', edit_evaluation_score_path(evaluation_score) %></td>
+        <td><%= link_to 'Destroy', evaluation_score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Evaluation score', new_evaluation_score_path %>

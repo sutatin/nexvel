@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @selected_evaluation_item.user_id %>
+</p>
+
+<p>
+  <strong>Evaluation item:</strong>
+  <%= @selected_evaluation_item.evaluation_item_id %>
+</p>
+
+<p>
+  <strong>Importance:</strong>
+  <%= @selected_evaluation_item.importance %>
+</p>
+
+<%= link_to 'Edit', edit_selected_evaluation_item_path(@selected_evaluation_item) %> |
+<%= link_to 'Back', selected_evaluation_items_path %>
