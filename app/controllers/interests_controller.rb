@@ -12,6 +12,8 @@ class InterestsController < ApplicationController
   def show
     @interest_memos = @interest.interest_memos
     @evaluation_scores = @interest.evaluation_scores
+    graph
+    
   end
 
   # GET /interests/new
@@ -81,6 +83,34 @@ class InterestsController < ApplicationController
     end
   end
 
+
+    def graph
+      
+        genre = []
+        aData = []
+      
+        @evaluation_scores.each do |f|
+          genre.push(f.selected_evaluation_item.evaluation_item.title)
+          aData.push(f.score)
+        end
+
+        @graph = LazyHighCharts::HighChart.new('graph') do |f|
+          f.chart(polar: true,type:'line') #グラフの種類
+          f.pane(size:'80%')                  #グラフサイズの比
+          f.title(text: '企業評価')         #タイトル
+          f.xAxis(categories: genre,tickmarkPlacement:'on')
+          #categories:各項目の名前,tickmarkPlacement:'on'だとメモリ表示がカテゴリーの表示に沿う
+          f.yAxis(gridLineInterpolation: 'polygon',lineWidth:0,min:0,max:5) #各項目の最大値やら
+          f.series(name:'あなたの評価',data: aData,pointPlacement:'on')
+         #各データ
+          f.legend(align: 'right',
+    	        verticalAlign: 'top',
+    	        y: 70,
+    	        layout: 'vertical')
+        end
+    end    
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_interest
@@ -91,4 +121,7 @@ class InterestsController < ApplicationController
     def interest_params
       params.require(:interest).permit(:user_id, :company_id,:score, :status, :date)
     end
+
+
+
 end

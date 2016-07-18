@@ -33,6 +33,8 @@ gem 'kaminari'
 # Use datetimepicker https://blog.hello-world.jp.net/javascript/1762/
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
+# Use chart http://cocokyoro.hateblo.jp/entry/2014/01/12/033809
+gem 'lazy_high_charts'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code
