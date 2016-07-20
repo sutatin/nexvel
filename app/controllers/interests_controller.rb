@@ -84,31 +84,27 @@ class InterestsController < ApplicationController
   end
 
 
-    def graph
-      
-        genre = []
-        aData = []
-      
-        @evaluation_scores.each do |f|
-          genre.push(f.selected_evaluation_item.evaluation_item.title)
-          aData.push(f.score)
-        end
+  def graph
+    
+      array_evaluation_titles = @evaluation_scores.map{ |n| n.selected_evaluation_item.evaluation_item.title}
+      array_evaluation_scores = @evaluation_scores.map{ |n| n.score}
 
-        @graph = LazyHighCharts::HighChart.new('graph') do |f|
-          f.chart(polar: true,type:'line') #グラフの種類
-          f.pane(size:'80%')                  #グラフサイズの比
-          f.title(text: '企業評価')         #タイトル
-          f.xAxis(categories: genre,tickmarkPlacement:'on')
-          #categories:各項目の名前,tickmarkPlacement:'on'だとメモリ表示がカテゴリーの表示に沿う
-          f.yAxis(gridLineInterpolation: 'polygon',lineWidth:0,min:0,max:5) #各項目の最大値やら
-          f.series(name:'あなたの評価',data: aData,pointPlacement:'on')
-         #各データ
-          f.legend(align: 'right',
-    	        verticalAlign: 'top',
-    	        y: 70,
-    	        layout: 'vertical')
-        end
-    end    
+      @graph = LazyHighCharts::HighChart.new('graph') do |f|
+        f.chart(polar: true,type:'line') #グラフの種類
+        f.pane(size:'80%')                  #グラフサイズの比
+        f.title(text: "総合得点： #{@interest.score} / 10" )         #タイトル
+        f.xAxis(categories: array_evaluation_titles,tickmarkPlacement:'on')
+        #categories:各項目の名前,tickmarkPlacement:'on'だとメモリ表示がカテゴリーの表示に沿う
+        f.yAxis(gridLineInterpolation: 'polygon',lineWidth:0,min:0,max:5) #各項目の最大値やら
+        f.series(name:'あなたの評価',data: array_evaluation_scores,pointPlacement:'on')
+       #各データ
+        f.legend(align: 'right',
+  	        verticalAlign: 'top',
+  	        y: 70,
+  	        layout: 'vertical')
+	     
+      end
+  end    
 
 
   private

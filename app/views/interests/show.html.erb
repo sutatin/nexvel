@@ -59,23 +59,8 @@
 
 <div class="page-header">
   <h4><span class="glyphicon glyphicon-book"></span> 企業評価
-  <small>この会社の自分の評価結果を残そう</small></h4>
+  <small>この会社に関しての自分の評価結果</small></h4>
 </div>
-
-
-<ul class="list-group">
-  <% @evaluation_scores.each do |f| %>
-  <li class="list-group-item list-group-item-warning">
-        <%= f.selected_evaluation_item.evaluation_item.title %>
-  </li>
-  <li class="list-group-item">
-    <p>
-        <%= f.score %>
-    </p>
-  </li>
-  <% end %>
-</ul>
-
 
 <%= high_chart("radar", @graph) %>
 
