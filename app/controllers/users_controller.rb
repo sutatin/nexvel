@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :check_mine
+
   def new
     @user = User.new
   end
@@ -19,10 +21,15 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
+
+
   private
   def user_params
     params.require(:user).permit(:name,:email,:tel,:kind,:password,:password_confirmation)
   end
   
+  def check_mine
+    redirect_to current_user unless mine?(params[:id])
+  end
+
 end

@@ -111,13 +111,16 @@ class InterestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_interest
       @interest = Interest.find(params[:id])
+      check_mine
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interest_params
       params.require(:interest).permit(:user_id, :company_id,:score, :status, :date)
     end
-
-
+    
+    def check_mine
+      redirect_to current_user unless mine?(@interest.user_id)
+    end
 
 end
