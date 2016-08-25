@@ -40,6 +40,22 @@
    </span>
   </div>  
   
+  
+  <% #各項目の評価入力箇所 %>
+  <%= f.fields_for :evaluation_scores do |evaluation_score| %>
+    <div class="field">
+      <%= @array_evaluation_titles[evaluation_score.object.selected_evaluation_item_id.to_i-1] %>
+      <%= evaluation_score.number_field :score %>
+    </div>
+
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  
+  
   <div class="actions">
     <%= f.submit "更新する"%>
   </div>

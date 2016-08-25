@@ -11,7 +11,7 @@ class InterestsController < ApplicationController
   # GET /interests/1.json
   def show
     @interest_memos = @interest.interest_memos
-    @evaluation_scores = @interest.evaluation_scores
+    @evaluation_scores = @interest.evaluation_scores.includes(:selected_evaluation_item)
     graph
     
   end
@@ -23,6 +23,7 @@ class InterestsController < ApplicationController
 
   # GET /interests/1/edit
   def edit
+    @array_evaluation_titles = EvaluationItem.all.pluck(:title)
   end
 
   # POST /interests
@@ -85,10 +86,9 @@ class InterestsController < ApplicationController
 
 
   def graph
-    
-      array_evaluation_titles = @evaluation_scores.map{ |n| n.selected_evaluation_item.evaluation_item.title}
-      array_evaluation_scores = @evaluation_scores.map{ |n| n.score}
-
+      array_evaluation_titles = EvaluationItem.all.pluck(:title)
+      array_evaluation_scores = @evaluation_scores.pluck(:score)
+      
       @graph = LazyHighCharts::HighChart.new('graph') do |f|
         f.chart(polar: true,type:'line') #グラフの種類
         f.pane(size:'80%')                  #グラフサイズの比
@@ -116,7 +116,7 @@ class InterestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interest_params
-      params.require(:interest).permit(:user_id, :company_id,:score, :status, :date)
+      params.require(:interest).permit(:user_id, :company_id,:score, :status, :date, evaluation_scores_attributes: [:score,:id])
     end
     
     def check_mine

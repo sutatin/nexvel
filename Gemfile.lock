@@ -48,6 +48,9 @@ GEM
     bootstrap3-datetimepicker-rails (4.17.37)
       momentjs-rails (>= 2.8.1)
     builder (3.2.2)
+    bullet (5.1.1)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     byebug (9.0.5)
     choice (0.2.0)
     coderay (1.1.1)
@@ -177,6 +180,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    uniform_notifier (1.10.0)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -190,6 +194,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootstrap-sass
   bootstrap3-datetimepicker-rails
+  bullet
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)

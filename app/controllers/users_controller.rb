@@ -9,7 +9,7 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
    params[:q] ||=  {:s => 'date'}
    @ransack_interest = @user.interests.search(params[:q])
-   @interests = @ransack_interest.result(distinct: true)
+   @interests = @ransack_interest.result(distinct: true).includes(:company)
   end
   
   def create

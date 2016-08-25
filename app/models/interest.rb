@@ -8,4 +8,7 @@ class Interest < ActiveRecord::Base
     belongs_to :company
     has_many :interest_memos
     has_many :evaluation_scores
+    has_many :selected_evaluation_items, through: :evaluation_scores
+    accepts_nested_attributes_for :evaluation_scores
+
 end

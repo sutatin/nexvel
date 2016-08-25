@@ -41,6 +41,7 @@ group :development, :test do
   # to stop execution and get a debugger console
   gem 'byebug'
   gem 'rails-erd'
+  gem 'bullet'
 end
 
 group :development do

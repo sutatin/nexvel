@@ -38,4 +38,16 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  #パラメータ漏れ時にエラーを起こしてくれる
+  config.action_controller.action_on_unpermitted_parameters = :raise
+  
+  # bullet settings
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.add_footer = true
+  end
+  
 end
